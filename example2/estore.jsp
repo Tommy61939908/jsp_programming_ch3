@@ -46,9 +46,9 @@ public String disPrice(String price){
             <h1></h1>
             <table border="1">
                 <tr>
-                    <th align="left"></th>
-                    <th align="left"></th>
-                    <th align="left"></th>
+                    <th align="left">Item</th>
+                    <th align="left">Price</th>
+                    <th align="left">Order</th>
                 </tr>
             </table>
         </td>
