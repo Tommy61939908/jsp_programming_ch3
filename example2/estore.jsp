@@ -1,3 +1,4 @@
+<%@page import="com.liuchang.Product"%>
 <%@page import="com.liuchang.Category"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.liuchang.EShop"%>
@@ -50,6 +51,23 @@ public String disPrice(String price){
                     <th align="left">Price</th>
                     <th align="left">Order</th>
                 </tr>
+                <%
+                		String selectedCat = request.getParameter("catid");
+                		if(selectedCat == null){
+                			selectedCat = "1";
+                		}
+                		ArrayList items = (ArrayList) EShop.getItems(selectedCat);
+                		for (int i = 0; i < items.size(); i++){
+                			Product curItem = (Product)items.get(i);
+                	%>
+                	<tr>
+                		<td><%= curItem.getName() %></td>
+                		<td><%= disPrice(String.valueOf(curItem.getPrice())) %>
+                		<td><a href="<%= request.getContextPath() +"/example2/shopcart.jsp?action=buy&sku="+ curItem.getSku() %>"><b>Buy</b></a>
+                	</tr>
+                	<%	
+                		}
+                %>
             </table>
         </td>
     </tr>
